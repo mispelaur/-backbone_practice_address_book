@@ -18,13 +18,13 @@ addressBookApp.ContactView = Backbone.View.extend({
   }, 
   editContact: function(){
     this.$('h1, p').each(function(){
-      $(this).replaceWith($('<input class="'+ $(this).attr('class') + '"value="'+$(this).text() + '"/>'));
+      $(this).replaceWith($('<'+this.tagName+'><input class="'+ $(this).attr('class') + '"value="'+$(this).text() + '"/></'+this.tagName+'>'));
     });
     this.$('button.edit').text('Save').addClass('save').removeClass('edit');
   },
   saveContact: function(){
     var name = this.$('input.name').val();;
     var number = this.$('input.number').val();;
-    this.model.set({name: name, number: number});
+    this.model.set({name: name, number: number, validate: true});
   }, 
 })
