@@ -18,6 +18,7 @@ addressBookApp.ContactView = Backbone.View.extend({
   editContact: function(){
     this.$('h1, p').each(function(){
       $(this).replaceWith($('<input class="'+ $(this).attr('class') + '"value="'+$(this).text() + '"/>'));
-    })
+    });
+    this.$('button.edit').text('Save').addClass('save').removeClass('edit');
   }
 })
