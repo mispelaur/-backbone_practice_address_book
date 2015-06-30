@@ -3,13 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Address Book</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-min.css">
   <script src="js/jquery.js"></script>
   <script src="js/underscore.js"></script>
   <script src="js/backbone.js"></script>
   <script src="js/models/contact.js"></script>
+  <script src="js/collections/address_book.js"></script>
+  <script src="js/views/address_book_view.js"></script>
   <script src="js/script.js"></script>
 </head>
 <body>
-  
+  <div id="book">
+    <form action="#" id="add">
+      <input type="text" id="name" name="name" placeholder="enter a name" />
+      <input type="text" id="number" name="number" placeholder="enter a phone number" />
+      <input type="submit" value="Add" />
+    </form>
+    <div id="contactList" class="pure-g">
+      <!-- contacts will be loaded inside here -->
+    </div>
+  </div>
 </body>
 </html>
