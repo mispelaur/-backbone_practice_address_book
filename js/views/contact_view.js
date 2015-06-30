@@ -2,7 +2,8 @@ addressBookApp.ContactView = Backbone.View.extend({
   tagName: 'div',
   events: {
     'click button.remove': 'removeContact',
-    'click button.edit': 'editContact'
+    'click button.edit': 'editContact',
+    'click button.save': 'saveContact',
   },
   initialize: function(){
     this.contactTemplate = _.template($('#tpl_contact').html());
@@ -20,5 +21,10 @@ addressBookApp.ContactView = Backbone.View.extend({
       $(this).replaceWith($('<input class="'+ $(this).attr('class') + '"value="'+$(this).text() + '"/>'));
     });
     this.$('button.edit').text('Save').addClass('save').removeClass('edit');
-  }
+  },
+  saveContact: function(){
+    var name = this.$('input.name').val();;
+    var number = this.$('input.number').val();;
+    this.model.set({name: name, number: number});
+  }, 
 })
