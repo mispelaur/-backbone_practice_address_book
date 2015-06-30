@@ -1,9 +1,15 @@
 addressBookApp.AddressBookView = Backbone.View.extend({
   el: '#book', // element already on the DOM when page loads
   events: {'submit form#add': 'createContact'},
+  initialize: function(){
+    this.collection.bind('add remove change', this.render, this);
+  },
   render: function(){
+    var contactList = $('#contactList');
+    contactList.empty();
     this.collection.each(function(contact){
       var contactView = new addressBookApp.ContactView({model: contact});
+      contactList.append(contactView.render().el);
     })
   },
   addContact: function(name, number){
@@ -13,6 +19,7 @@ addressBookApp.AddressBookView = Backbone.View.extend({
   createContact: function(event){
     event.preventDefault();
     console.log(event);
+    debugger;
     var name = this.$('#name');
     var number = this.$('#number');
     this.addContact(name.val(), number.val());
