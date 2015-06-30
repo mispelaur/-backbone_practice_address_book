@@ -9,5 +9,7 @@ var addressBook = new addressBookApp.AddressBook([contact1, contact2, contact3, 
 $(document).ready(function(){
   var addressBookView = new addressBookApp.AddressBookView({collection: addressBook});
   addressBookView.render();
+  var router = new addressBookApp.AppRouter();
+  Backbone.history.start();
 });
 
