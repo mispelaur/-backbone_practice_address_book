@@ -9,6 +9,7 @@
   <script src="js/backbone.js"></script>
   <script src="js/models/contact.js"></script>
   <script src="js/collections/address_book.js"></script>
+  <script src="js/views/contact_view.js"></script>
   <script src="js/views/address_book_view.js"></script>
   <script src="js/script.js"></script>
 </head>
@@ -23,5 +24,11 @@
       <!-- contacts will be loaded inside here -->
     </div>
   </div>
+  <script type="text/x-underscore-template" id="tpl_contact">
+    <h1 class="name"><%= name %></h1>
+    <p class="number"><%= number %></p>
+    <button class="edit">Edit</button>
+    <button class="remove">Remove</button>
+  </script>
 </body>
 </html>
