@@ -23,7 +23,8 @@ addressBookApp.AddressBookView = Backbone.View.extend({
   },
   addContact: function(name, number){
     var contact = new addressBookApp.Contact({name: name, number: number});
-    this.collection.add(contact);
+    // this.collection.add(contact); // only adds collection locally
+    this.collection.create(contact);
   },
   createContact: function(event){
     event.preventDefault();
