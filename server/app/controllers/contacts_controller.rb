@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   def index
-    contacts = Contact.all
+    contacts = Contact.all.order('name ASC')
     render json: contacts
   end
 
@@ -15,5 +15,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    contact = Contact.find(params[:id])
+    render json: contact if contact.destroy
   end
 end
