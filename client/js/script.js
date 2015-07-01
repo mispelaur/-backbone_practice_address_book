@@ -7,7 +7,6 @@
 
 addressBookApp.addressBook = new addressBookApp.AddressBook([]);
 
-
 $(document).ready(function(){
   var router = new addressBookApp.AppRouter();
   Backbone.history.start();

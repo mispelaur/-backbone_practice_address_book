@@ -3,6 +3,15 @@ addressBookApp.AddressBookView = Backbone.View.extend({
   events: {'submit form#add': 'createContact'},
   initialize: function(){
     this.collection.bind('add remove change', this.render, this);
+    // when we load the page, this initialize function is run.  After render, this fetch request is made
+    this.collection.fetch({
+      success: function(collection, response, options) {
+        console.log(colleciton);
+      },
+      error: function(error, response, options) {
+        console.log(error);
+      }
+    })
   },
   render: function(){
     var contactList = $('#contactList');
