@@ -6,7 +6,7 @@ addressBookApp.AddressBookView = Backbone.View.extend({
     // when we load the page, this initialize function is run.  After render, this fetch request is made
     this.collection.fetch({
       success: function(collection, response, options) {
-        console.log(colleciton);
+        console.log(collection);
       },
       error: function(error, response, options) {
         console.log(error);
