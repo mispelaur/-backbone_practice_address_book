@@ -23,9 +23,13 @@ addressBookApp.ContactView = Backbone.View.extend({
     this.$('button.edit').text('Save').addClass('save').removeClass('edit');
   },
   saveContact: function(){
-    var name = this.$('input.name').val();;
-    var number = this.$('input.number').val();;
-    this.model.set({name: name, number: number, validate: true}); //saves locally
-    this.model.save();
+    var name = this.$('input.name').val();
+    var number = this.$('input.number').val();
+    this.model.set({name: name, number: number}); //saves locally
+    if(this.model.hasChanged()){
+      this.model.save();
+    }else{
+      this.render();
+    }
   }, 
 })

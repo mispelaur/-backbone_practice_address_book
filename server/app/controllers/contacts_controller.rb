@@ -18,4 +18,5 @@ class ContactsController < ApplicationController
     contact = Contact.find(params[:id])
     render json: contact if contact.destroy
   end
+
 end
